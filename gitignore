@@ -1,0 +1,6 @@
+# Ignore file
+
+# ignore build files
+build/
+
+# End 
