@@ -1,0 +1,133 @@
+
+
+.ic_info_cards_list_block {
+  
+
+}
+
+.ic_info_cards_list_inner_container {
+
+}
+
+.ic_info_cards_list_row {
+    border-style: none;
+    flex-wrap: nowrap;
+    display: flex;
+  
+}
+
+.ic_info_cards_list_row:not(:first-child) {
+    margin-top: 28px;
+}
+
+
+.ic_info_card_block {
+  
+    border-color: var(--card_border_colour);
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 15px;
+    padding: 5px;
+    position: relative;
+    min-height: var(--card_min_height);
+    margin: 0px;
+    flex: 1;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.ic_info_card_block:not(:first-child) {
+    margin-left: 32px;
+}
+
+.ic_info_card_title {
+    
+    /* border */
+    border-color: var(--card_border_colour);
+    border-style: solid;
+    border-width: 6px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    
+    /* font */ 
+    font-size: 20px;
+    font-weight: bold;
+    background-color: var(--card_border_colour);
+    
+    /* margin 7 padding */
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+    padding-bottom: 0;
+}
+
+.ic_info_card_icon {
+
+    background-color: var(--card_border_colour);
+    font-size: xx-large;
+}
+
+
+.ic_info_card_excerpt {
+
+    font-size: 15px;
+    font-style: italic;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 25px;
+    margin-top: 15px;
+
+}
+
+.ic_info_card_email {
+ 
+    background-color: var(--card_border_colour);
+    margin: 20px;
+    border-color: var(--card_border_colour);
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 5px;
+    padding: 0px;
+    color: white;
+    font-size: 12px;
+    line-height: 1.2em;
+    font-weight: 700;
+    white-space: nowrap;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: keep-all;
+    width: 70%;
+    
+    /* position at bottom center */ 
+  	position: absolute;
+    bottom: -10px;
+  	margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+
+
+}
+
+
+/* card hover behaviour */
+
+
+.ic_info_card_email:hover 
+{
+	 border-color: black;
+	 background-color : black;
+	 color : var(--card_border_colour);
+}
+
+.ic_info_card_block:hover {
+	border-width : 10px;
+	padding: 0px;
+
+}
+
+.ic_info_card_block:hover .ic_info_card_title {
+	border-width : 7px;
+
+
+}
