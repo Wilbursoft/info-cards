@@ -159,4 +159,3 @@ class IC_RenderTest extends WP_UnitTestCase
 
 }
 
-?>

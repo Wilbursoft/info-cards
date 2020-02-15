@@ -221,4 +221,4 @@ class IC_SettingsTest extends WP_UnitTestCase
 
 }
 
-?>
+

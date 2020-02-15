@@ -24,7 +24,7 @@ class IC_InfoCardsTest extends WP_UnitTestCase
         ob_start();
         info_cards_activate();
         $output = ob_get_contents();
-        $this->assertTrue("" == $output);
+        $this->assertTrue("" === $output);
         ob_end_clean();
         
         /**
@@ -34,7 +34,7 @@ class IC_InfoCardsTest extends WP_UnitTestCase
    	    ob_start();
         info_cards_deactivate();
         $output = ob_get_contents();
-        $this->assertTrue("" == $output);
+        $this->assertTrue("" === $output);
         ob_end_clean();
         
    
@@ -42,4 +42,3 @@ class IC_InfoCardsTest extends WP_UnitTestCase
 
 }
 
-?>

@@ -29,12 +29,12 @@ dbg_trace("adding actions");
 dbg_trace("registering hooks");
 register_activation_hook(__FILE__, 'info_cards_activate');
 function info_cards_activate(){
-     dbg_trace();
+    dbg_trace();
 }
 
 register_deactivation_hook(__FILE__, 'info_cards_deactivate');
 function info_cards_deactivate(){
-     dbg_trace();
+    dbg_trace();
 }
 
 // 'WilburSoft WordPress Plugins' font awesome kit

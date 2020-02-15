@@ -144,4 +144,3 @@ class UtilsTest extends WP_UnitTestCase
     
 }
 
-?>

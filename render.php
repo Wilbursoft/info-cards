@@ -215,7 +215,3 @@ class ic_render {
 
 }
 
-
-?>
-
-

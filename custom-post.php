@@ -17,7 +17,6 @@ class ic_info_card {
 		add_action('quick_edit_custom_box',array($this,'fn_quick_edit_custom_box'),11,2);
 		add_action('save_post', array($this,'fn_post_edit_save'),11,2);
 
-		
 		// Filters
 		add_filter('posts_join',array($this,'join'),10,1);
 		add_filter('posts_orderby',array($this,'set_default_sort'),20,2);
