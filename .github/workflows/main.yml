@@ -8,7 +8,7 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
-      uses: info-cards/github/actions/unit-test
+      uses: Wilbursoft/info-cards/github/actions/unit-test
       with:
         who-to-greet: 'who to greet param'
     # Use the output from the `hello` step
