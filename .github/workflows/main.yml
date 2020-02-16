@@ -6,8 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Run unit test with coverage
     steps:
-    - name: Run tests
-      id: hello
+    - name: checkout repo
+      id: checkout
+      uses: actions/checkout@v2    
+    - name: run the unit tests
+      id: unittest
       uses: ./github/actions/unit-test
       with:
         who-to-greet: 'who to greet param'
