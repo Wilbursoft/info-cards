@@ -2,13 +2,13 @@ name: CI
 on: [push]
 
 jobs:
-  hello_world_job:
+  unit-test:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Run unit test with coverage
     steps:
-    - name: Hello world action step
+    - name: Run tests
       id: hello
-      uses: Wilbursoft/info-cards/github/actions/unit-test
+      uses: ../../github/actions/unit-test
       with:
         who-to-greet: 'who to greet param'
     # Use the output from the `hello` step
