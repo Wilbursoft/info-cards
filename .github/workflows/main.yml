@@ -11,7 +11,7 @@ jobs:
       uses: actions/checkout@v2    
     - name: run the unit tests
       id: unittest
-      uses: ./github/actions/unit-test
+      uses: ./.github/actions/unit-test
       with:
         who-to-greet: 'who to greet param'
     # Use the output from the `hello` step
