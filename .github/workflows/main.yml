@@ -21,10 +21,12 @@ jobs:
       - name: Run tests
         run: |
           echo creating docker image for test environment
-          ./wp-plugin-test-env/bin/make-wp-docker.sh ./info-cards
+          cd ./wp-plugin-test-env
+          ./bin/make-wp-docker.sh ./info-cards
           
           echo spinning up test environment 
-          ./wp-plugin-test-env/bin/bring-up-test-env.sh
+          ./bin/bring-up-test-env.sh
+          cd ..
 
           echo Run the tests
           docker exec docker-test-env_wordpress_1 /var/www/html/setup-run-unittests.sh 
