@@ -13,6 +13,8 @@ class UtilsTest extends WP_UnitTestCase
     public function test_dbg_trace()
     {
         dbg_trace ("test trace");
+        $this->assertTrue( true);
+
     }
     
     
