@@ -1,4 +1,4 @@
-name: CI
+name: Test On Push
 on: [push]
 
 jobs:
@@ -6,14 +6,27 @@ jobs:
     runs-on: ubuntu-latest
     name: Run unit test with coverage
     steps:
-    - name: checkout repo
-      id: checkout
-      uses: actions/checkout@v2    
-    - name: run the unit tests
-      id: unittest
-      uses: ./.github/actions/unit-test
-      with:
-        who-to-greet: 'who to greet param'
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+      
+      - name: Checkout WordPress plugin code 
+        uses: actions/checkout@v2
+        with:
+          path: info-cards
+
+      - name: Checkout 
+        uses: actions/checkout@v2
+        with:
+          repository: Wilbursoft/wp-plugin-test-env
+          path: wp-plugin-test-env
+
+      - name: Run tests
+        run: |
+          echo creating docker image for test environment
+          ./bin/make-wp-docker.sh ./info-cards
+          
+          echo spinning up test environment 
+          ./bin/bring-up-test-env.sh
+
+          echo Run the tests
+          docker exec docker-test-env_wordpress_1 /var/www/html/setup-run-unittests.sh 
+          exit $?
+          
