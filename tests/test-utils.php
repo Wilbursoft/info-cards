@@ -32,7 +32,7 @@ class UtilsTest extends WP_UnitTestCase
 
        		// endsWidth -ve
        		$this->assertTrue( !endsWith("hello freddy","hello"));
-       		$this->assertTrue( !endsWith("hello freddy",""));
+       		$this->assertTrue( !endsWith("hello freddy","fredd"));
        		
     }
     
