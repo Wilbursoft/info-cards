@@ -1,4 +1,4 @@
-name: Test On Push
+name: Automates Test On Push
 on: [push]
 
 jobs:
@@ -12,7 +12,7 @@ jobs:
         with:
           path: info-cards
 
-      - name: Checkout 
+      - name: Checkout wp-plugin-test-env
         uses: actions/checkout@v2
         with:
           repository: Wilbursoft/wp-plugin-test-env
@@ -21,10 +21,10 @@ jobs:
       - name: Run tests
         run: |
           echo creating docker image for test environment
-          ./bin/make-wp-docker.sh ./info-cards
+          ./wp-plugin-test-env/bin/make-wp-docker.sh ./info-cards
           
           echo spinning up test environment 
-          ./bin/bring-up-test-env.sh
+          ./wp-plugin-test-env/bin/bring-up-test-env.sh
 
           echo Run the tests
           docker exec docker-test-env_wordpress_1 /var/www/html/setup-run-unittests.sh 
