@@ -22,7 +22,7 @@ jobs:
         run: |
           echo creating docker image for test environment
           cd ./wp-plugin-test-env
-          ./bin/make-wp-docker.sh ./info-cards
+          ./bin/make-wp-docker.sh ../info-cards
           
           echo spinning up test environment 
           ./bin/bring-up-test-env.sh
