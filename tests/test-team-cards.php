@@ -14,7 +14,7 @@ class IC_InfoCardsTest extends WP_UnitTestCase
 
     public function test_methods()
     {
-   		$this->assertTrue( is_plugin_active('info-cards/info-cards.php') );
+   		$this->assertTrue( is_plugin_active('wp-info-cards/info-cards.php') );
    		
       
         /**
