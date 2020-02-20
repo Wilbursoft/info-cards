@@ -37,7 +37,7 @@ jobs:
         if: success()
         run: |
           echo packaging 
-          zip --junk-paths --recurse ./info-cards.zip .
+          zip -r ./info-cards.zip .
       - name: Create Release
         if: success()
         id: create_release
