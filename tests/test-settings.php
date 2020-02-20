@@ -64,9 +64,6 @@ class IC_SettingsTest extends WP_UnitTestCase
         wp_set_current_user( $admin_user_id );
         $this->assertTrue( current_user_can( 'manage_options' ));
 
-        // Plugin loaded
-        $this->assertTrue( is_plugin_active('wp-info-cards/info-cards.php') );
-
         // Register settings and set default options 
         $settings = IC_SettingsTest::hlp_create_settings();
         

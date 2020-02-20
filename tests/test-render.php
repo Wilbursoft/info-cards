@@ -38,7 +38,6 @@ class IC_RenderTest extends WP_UnitTestCase
     // Run the tests
     public function test_methods(){
         
-   		$this->assertTrue( is_plugin_active('wp-info-cards/info-cards.php') );
    		
         /**
          *  Test init  
