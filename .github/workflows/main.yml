@@ -30,7 +30,7 @@ jobs:
 
           echo Run the tests
           docker exec docker-test-env_wordpress_1 /var/www/html/setup-run-unittests.sh 
-          exit $?
+          exit 1
          
           
       - name: Package Build
