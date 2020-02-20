@@ -14,7 +14,7 @@ CI CD
      [ ] SVN Publish 
      [x] Donate Link
      [x] License URI
-     [ ] readme.md and readme.txt
+     [x] readme.md and readme.txt
      [ ] wordpress debug mode
      [ ] class rename 
 
