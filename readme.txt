@@ -1,14 +1,19 @@
 === Info Cards ===
-Contributors: guy
-Requires at least: 4.0
-Tested up to: 5.3
-Stable tag: 4.1.3
-License: GPLv2 or later
+Contributors: wilbur666
+Tags: cards, blocks, tiles, contacts, info
+Donate link: https://www.paypal.me/GuyRoberts1972
+Requires at least: 5.3.2
+Tested up to: 5.3.2
+Requires PHP: 5.6.40
+Stable tag: trunk
+License: GPL v2.0
+License URI: https://choosealicense.com/licenses/gpl-2.0/
 
-Info cards allows you to define a list of items and show information abotu them in a tabular card layoru that you can customise.
+Display a customisable and reactive grid of \'Info Cards\' with Font Awesome Icon, description and contact info for each.  
 
 == Description ==
-
+Allows you to create a list of info cards managed via the plugins own admin page. You can specify parameters such as title, icon description and contact email for each. 
+A settings page allows customisation of colours and layout. 
 
 
 == Installation ==

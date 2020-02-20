@@ -2,15 +2,18 @@ TODO
 
 CI CD
      [ ] Source Control 
-       [ ] upload to github
-       [ ] git ignore etc
-       [ ] add one change
-       [ ] run unit test and package in a zip
+       [x] upload to github
+       [x] git ignore etc
+       [x] add one change
+       [x] run unit test and package in a zip
        [ ] deploy to rebellionmk.earth 
       
-     [ ] travis
+     [x] travis
      [x] PHP Unit - 100%
      [ ] SVN Publish 
+     [x] Donate Link
+     [x] License URI
+
      [ ] Landing page web site 
 
 Functionality 
