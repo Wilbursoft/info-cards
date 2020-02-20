@@ -108,27 +108,27 @@ class IC_CustomPostTest extends WP_UnitTestCase
 
 
         /*
-   	    * Test fn_quick_edit_custom_box ( $column_name,  $post_type,  $taxonomy )
+   	    * Test fn_quick_edit_custom_box ( $column_name,  $post_type )
    	    */
    	    
    	    
    	    // helper to capture echo
-   	    function helper_fn_quick_edit_custom_box( $custom_post_type, $column_name,  $post_type,  $taxonomy = ""){
+   	    function helper_fn_quick_edit_custom_box( $custom_post_type, $column_name,  $post_type){
    	        ob_start();
-   	        $custom_post_type->fn_quick_edit_custom_box($column_name,  $post_type,  $taxonomy);
+   	        $custom_post_type->fn_quick_edit_custom_box($column_name,  $post_type);
    	        $output = ob_get_contents();
             ob_end_clean();
    	        return $output;
    	    }
    	    
-   	    $this->assertTrue(empty(helper_fn_quick_edit_custom_box($custom_post_type, "invalid","invalid","")));
-   	    $this->assertTrue(empty(helper_fn_quick_edit_custom_box($custom_post_type, "ic_contact_email","invalid","")));
+   	    $this->assertTrue(empty(helper_fn_quick_edit_custom_box($custom_post_type, "invalid","invalid")));
+   	    $this->assertTrue(empty(helper_fn_quick_edit_custom_box($custom_post_type, "ic_contact_email","invalid")));
    	  
-   	    $email_input = helper_fn_quick_edit_custom_box($custom_post_type, "ic_contact_email","ic_info_card","");
+   	    $email_input = helper_fn_quick_edit_custom_box($custom_post_type, "ic_contact_email","ic_info_card");
    	    $this->assertTrue(!empty($email_input));
    	    $this->assertTrue(!is_valid_html($email_input));
    	    
-   	    $icon_input = helper_fn_quick_edit_custom_box($custom_post_type, "ic_icon","ic_info_card","");
+   	    $icon_input = helper_fn_quick_edit_custom_box($custom_post_type, "ic_icon","ic_info_card");
    	    $this->assertTrue(!empty($icon_input));
    	    $this->assertTrue(!is_valid_html($icon_input));
    	    

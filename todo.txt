@@ -6,7 +6,7 @@ CI CD
        [x] git ignore etc
        [x] add one change
        [x] run unit test 
-       [ ] package in a zip
+       [x] package in a zip
        [ ] deploy to rebellionmk.earth 
       
      [x] travis

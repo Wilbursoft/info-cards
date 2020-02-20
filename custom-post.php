@@ -159,7 +159,7 @@ class ic_info_card {
 
 
 	// Display quick edit custom fields 
-	function fn_quick_edit_custom_box( $column_name,  $post_type,  $taxonomy ){
+	function fn_quick_edit_custom_box( $column_name,  $post_type ){
 
 		// Check post type
 		if( self::$post_type != $post_type) {

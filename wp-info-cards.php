@@ -40,17 +40,39 @@ function info_cards_deactivate(){
 // 'WilburSoft WordPress Plugins' font awesome kit
 fa_custom_setup_kit('https://kit.fontawesome.com/79e09bb404.js');
 
+// The app class
+class ic_info_cards_app {
+	
 
-
-// Java script
-wp_enqueue_script( 
+	// Constructor
+	function ic_info_cards_app() {
+		
+	
+    	// Scripts and CSS
+		add_action( 'wp_enqueue_scripts', array($this, 'fn_enqueue_scripts') );
+		add_action( 'admin_enqueue_scripts', array($this, 'fn_enqueue_scripts') );
+		
+	}
+	
+	// Enqueue scripts and styles
+	function fn_enqueue_scripts() {
+		
+		// Java script
+		wp_enqueue_script( 
 			'info-cards', 
 			plugin_dir_url( __FILE__ ) . 'includes/js/info-cards.js',
 			array( 'jquery' ),
 			time()
 			);
+	 
+	}
+	
+
+}
 
 
+dbg_trace("creating ic_info_cards_app object");
+new ic_info_cards_app();
 
 dbg_trace("creating ic_info_cards object");
 new ic_info_card();
