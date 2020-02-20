@@ -17,8 +17,12 @@ A settings page allows customisation of colours and layout.
 
 
 == Installation ==
-
-
+Either upload the plugin to your web site or add it via the plugins page.
+Next, go to the plugins page in the admin area and active the 'Info Cards' plugin.
+Now, from the menu on the left, click 'Info Cards' and choose Add 'Add New' to create your first card.
+In a page or post use the short code [info-cards] to display the Info Cards you have created.
+To change appearrance and layout go to settings on the left menu and choose 'Info Cards'.
+Have fun. 
 
 == Changelog ==
 

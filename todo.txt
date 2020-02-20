@@ -5,7 +5,8 @@ CI CD
        [x] upload to github
        [x] git ignore etc
        [x] add one change
-       [x] run unit test and package in a zip
+       [x] run unit test 
+       [ ] package in a zip
        [ ] deploy to rebellionmk.earth 
       
      [x] travis
@@ -13,6 +14,9 @@ CI CD
      [ ] SVN Publish 
      [x] Donate Link
      [x] License URI
+     [ ] readme.md and readme.txt
+     [ ] wordpress debug mode
+     [ ] class rename 
 
      [ ] Landing page web site 
 
