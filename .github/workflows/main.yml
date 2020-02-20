@@ -20,7 +20,7 @@ jobs:
 
       - name: Run tests
         run: |
-          exit 00
+          exit 0
           echo creating docker image for test environment
           cd ./wp-plugin-test-env
           ./bin/make-wp-docker.sh ../wp-info-cards
@@ -58,8 +58,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.run_number }}
-          release_name:  ${{ github.run_number }}
+          tag_name: Tag_${{ github.run_number }}
+          release_name:  Release_${{ github.run_number }}
           draft: false
           prerelease: false
         
