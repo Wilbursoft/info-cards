@@ -37,9 +37,7 @@ jobs:
     name: Package & Release
     needs: [unit-test]
     runs-on: ubuntu-latest
-    env:
-      tag_name: Father
-      release_name: Xmass
+
     steps:  
       
       - name: Checkout  
@@ -52,8 +50,6 @@ jobs:
         run: |
           echo packaging 
           zip -r ./wp_info-cards.zip .
-          tag_name='some tag name'
-          echo $tag_name
           
       - name: Create Release Asset
         if: success()
@@ -62,8 +58,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ tag_name }}
-          release_name:   ${{ release_name }}
+          tag_name: Tag ${{ github.run_number }}
+          release_name:  Release ${{ github.run_number }}
           draft: false
           prerelease: false
         
