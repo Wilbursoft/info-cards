@@ -38,16 +38,12 @@ class IC_RenderTest extends WP_UnitTestCase
     // Run the tests
     public function test_methods(){
         
-   		
+   	 
         /**
          *  Test init  
          **/
          
-        // Capture state before init
-        global $shortcode_tags;
-        $before = count($shortcode_tags);
-        $this->assertTrue(!isset($shortcode_tags['info-cards']));
-
+    
         // Do the init
         ob_start();
         $renderer = new ic_render();
@@ -57,10 +53,10 @@ class IC_RenderTest extends WP_UnitTestCase
         ob_end_clean();
         
         // Capture state after init
+        global $shortcode_tags;
         $after = count($shortcode_tags);
         
         // Assert
-        $this->assertTrue($after - 1 == $before);
         $this->assertTrue(isset($shortcode_tags['info-cards']));
         
         // fn_enqueue_scripts

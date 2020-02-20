@@ -25,10 +25,7 @@ class IC_CustomPostTest extends WP_UnitTestCase
         '_builtin' => false
         );
         
-        // There should be no custom post types
-        $types = get_post_types( $get_cpt_args, 'object' );
-        WP_UnitTestCase::assertTrue(0 == count($types));
-        
+         
         // Create the ic_info custom post type
         $custom_post_type = new ic_info_card();
         $custom_post_type->fn_create_post_type();
