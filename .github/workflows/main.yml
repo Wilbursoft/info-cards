@@ -50,11 +50,11 @@ jobs:
         run: |
           echo packaging 
           mkdir ./pkg
-          cp ./*.php ./pkg/
-          cp ./README.md ./pkg/
-          cp ./LICENSE.txt ./pkg/
-          cp ./readme.txt ./pkg/
-          cp ./includes ./pkg/
+          cp ./wp-info-cards/*.php ./pkg/
+          cp ./wp-info-cards/README.md ./pkg/
+          cp ./wp-info-cards/LICENSE.txt ./pkg/
+          cp ./wp-info-cards/readme.txt ./pkg/
+          cp ./wp-info-cards/includes ./pkg/
           zip -r ./wp_info-cards.zip ./pkg
           
       - name: Create Release Asset
