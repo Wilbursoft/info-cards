@@ -37,6 +37,9 @@ jobs:
     name: Package & Release
     needs: [unit-test]
     runs-on: ubuntu-latest
+    env:
+      tag_name: Father
+      release_name: Xmass
     steps:  
       
       - name: Checkout  
@@ -60,7 +63,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ tag_name }}
-          release_name:   ${{ tag_name }}
+          release_name:   ${{ release_name }}
           draft: false
           prerelease: false
         
