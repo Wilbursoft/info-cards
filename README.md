@@ -1,13 +1,13 @@
 # info-cards
 ## === Info Cards ===
-Contributors: wilbur666
-Tags: cards, blocks, tiles, contacts, info
-Donate link: https://www.paypal.me/GuyRoberts1972
-Requires at least: 5.3.2
-Tested up to: 5.3.2
-Requires PHP: 5.6.40
-Stable tag: trunk
-License: GPL v2.0
+Contributors: wilbur666\
+Tags: cards, blocks, tiles, contacts, info\
+Donate link: https://www.paypal.me/GuyRoberts1972\
+Requires at least: 5.3.2\
+Tested up to: 5.3.2\
+Requires PHP: 5.6.40\
+Stable tag: trunk\
+License: GPL v2.0\
 License URI: https://choosealicense.com/licenses/gpl-2.0/
 
 Display a customisable and reactive grid of \'Info Cards\' with Font Awesome Icon, description and contact info for each.  
