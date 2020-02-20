@@ -49,7 +49,13 @@ jobs:
         if: success()
         run: |
           echo packaging 
-          zip -r ./wp_info-cards.zip .
+          mkdir ./pkg
+          cp ./*.php ./pkg/
+          cp ./README.md ./pkg/
+          cp ./LICENSE.txt ./pkg/
+          cp ./readme.txt ./pkg/
+          cp ./includes ./pkg/
+          zip -r ./wp_info-cards.zip ./pkg
           
       - name: Create Release Asset
         if: success()
