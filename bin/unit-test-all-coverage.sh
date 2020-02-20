@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Start DB
+sudo /etc/init.d/mysqld start
+
 # Run php unit
 plugindir=.
 phpbindir=~/environment/vendor/bin
