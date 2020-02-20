@@ -54,7 +54,7 @@ jobs:
           cp ./wp-info-cards/README.md ./pkg/
           cp ./wp-info-cards/LICENSE.txt ./pkg/
           cp ./wp-info-cards/readme.txt ./pkg/
-          cp ./wp-info-cards/includes ./pkg/
+          cp -r ./wp-info-cards/includes/ ./pkg/
           zip -r ./wp_info-cards.zip ./pkg
           
       - name: Create Release Asset
