@@ -1,5 +1,6 @@
 # info-cards 
 ![Tests](https://github.com/Wilbursoft/wp-info-cards/workflows/Tests/badge.svg)
+A WordPress plugin to layout information as a series of cards
 ## === Info Cards ===
 Contributors: wilbur666\
 Tags: cards, blocks, tiles, contacts, info\
