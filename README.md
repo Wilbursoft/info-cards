@@ -1,4 +1,5 @@
-# info-cards
+# info-cards 
+![Tests](https://github.com/Wilbursoft/wp-info-cards/workflows/Tests/badge.svg)
 ## === Info Cards ===
 Contributors: wilbur666\
 Tags: cards, blocks, tiles, contacts, info\
