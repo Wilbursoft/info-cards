@@ -3,7 +3,7 @@
 ## === Info Cards ===
 Contributors: wilbur666\
 Tags: cards, blocks, tiles, contacts, info\
-Donate link: https://www.paypal.me/GuyRoberts1972\
+Donate link: https://www.paypal.me/GuyRoberts1972 \
 Requires at least: 5.3.2\
 Tested up to: 5.3.2\
 Requires PHP: 5.6.40\
