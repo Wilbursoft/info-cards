@@ -1,4 +1,4 @@
-name: Automated Test On Push
+name: Tests
 on: [push]
 
 jobs:
