@@ -50,10 +50,10 @@ jobs:
         run: |
           echo packaging 
           mkdir ./pkg
-          cp ./wp-info-cards/*.php ./pkg/
-          cp ./wp-info-cards/README.md ./pkg/
-          cp ./wp-info-cards/LICENSE.txt ./pkg/
-          cp ./wp-info-cards/readme.txt ./pkg/
+          cp ./wp-info-cards/*.php        ./pkg/
+          cp ./wp-info-cards/README.md    ./pkg/
+          cp ./wp-info-cards/LICENSE      ./pkg/
+          cp ./wp-info-cards/readme.txt   ./pkg/
           cp -r ./wp-info-cards/includes/ ./pkg/
           cd ./pkg
           zip -r ../wp_info-cards.zip .
