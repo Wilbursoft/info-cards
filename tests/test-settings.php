@@ -3,10 +3,10 @@
 /**
 * Test Utilities
 */
-require_once dirname( __FILE__ ) .'/../wp-plugin-utils/lib/utils.php'; 
+require_once dirname( __FILE__ ) . '/../wp-plugin-utils/lib/utils.php'; 
 use wp_info_cards\plugin_utils as utils;
 
-require_once "./settings.php";
+require_once "./class.ic-settings.php";
 
 
 

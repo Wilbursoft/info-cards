@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Render.php
+ * class.ic-render.php
  * Public (non admin) rendering 
  */
 

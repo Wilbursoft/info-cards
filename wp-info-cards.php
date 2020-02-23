@@ -16,9 +16,9 @@
 // includes 
 require_once dirname( __FILE__ ) .'/wp-plugin-utils/lib/utils.php'; 
 use wp_info_cards\plugin_utils as utils;
-include_once dirname( __FILE__ ) .'/render.php';
-include_once dirname( __FILE__ ) .'/settings.php';
-include_once dirname( __FILE__ ) .'/custom-post.php';
+require_once dirname( __FILE__ ) .'/class.ic-render.php';
+require_once dirname( __FILE__ ) .'/class.ic-settings.php';
+require_once dirname( __FILE__ ) .'/class.ic-custom-post.php';
 
 
 // actions

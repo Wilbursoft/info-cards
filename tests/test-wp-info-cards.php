@@ -4,7 +4,7 @@
 * Test Utilities
 */
 
-require_once "./wp-info-cards.php";
+require_once dirname( __FILE__ ) . "/../wp-info-cards.php";
 
 
 class IC_InfoCardsTest extends WP_UnitTestCase

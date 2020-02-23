@@ -2,12 +2,11 @@
 
 /**
 */
-require_once dirname( __FILE__ ) .'/../wp-plugin-utils/lib/utils.php'; 
+require_once dirname( __FILE__ ) . '/../wp-plugin-utils/lib/utils.php'; 
 use wp_info_cards\plugin_utils as utils;
 
-require_once "./render.php";
-require_once "./tests/test-custom-post.php";
-require_once "./tests/test-settings.php";
+require_once dirname( __FILE__ ) . "/../class.ic-render.php";
+require_once dirname( __FILE__ ) . "/./test-class.ic-custom-post.php";
 
 class IC_RenderTest extends WP_UnitTestCase
 {

@@ -5,11 +5,11 @@
 */
 
 
-require_once dirname( __FILE__ ) .'/../wp-plugin-utils/lib/utils.php'; 
+require_once dirname( __FILE__ ) . '/../wp-plugin-utils/lib/utils.php'; 
 use wp_info_cards\plugin_utils as utils;
 
 
-require_once "./custom-post.php";
+require_once "./class.ic-custom-post.php";
 
 
 
