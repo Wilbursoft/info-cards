@@ -6,6 +6,7 @@
  */
 
 require_once dirname( __FILE__ ) .'/wp-plugin-utils/lib/utils.php'; 
+require_once dirname( __FILE__ ) .'/wp-plugin-utils/lib/class.render.php'; 
 use wp_info_cards\plugin_utils as utils;
 
  
@@ -66,7 +67,8 @@ class ic_render {
     
     // Create the actual CSS body
     $this->render_dynamic_css();
-    // @codeCoverageIgnoreStart
+    // @codeCoverageIgnoreEnd
+
 
   }
   
