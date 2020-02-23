@@ -1,6 +1,14 @@
-# Ignore file
+
+# Ignore files in this folder
+gitignore/
 
 # ignore build files
 build/
 
-# End 
+# ignore local test scaffold test files
+tests/bootstrap.php
+tests/test-sample.php
+bin/install-wp-tests.sh
+phpunit.xml.dist
+.phpcs.xml.dist
+.travis.yml
