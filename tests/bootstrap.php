@@ -28,7 +28,7 @@ function _manually_load_plugin() {
 	
 	// Ensure the plugins needed are activated
 	$plugins_to_active = array(
-		"wp-info-cards/info-cards.php"
+		"wp-info-cards/wp-info-cards.php"
 	);
 
 	update_option( 'active_plugins', $plugins_to_active );

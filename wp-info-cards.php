@@ -8,7 +8,7 @@
 * Author: Guy Roberts @ Wilbursoft 
 * Author URI: https://wilbursoft.com
 * License: GPL2
-* Text Domain: info-cards
+* Text Domain: info-cards.php
 */
 
 

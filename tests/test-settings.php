@@ -93,7 +93,7 @@ class IC_SettingsTest extends WP_UnitTestCase
         $this->assertTrue( 0 == count($links_array));
         
         // Check link inserted 
-        $links_array = $settings->fn_init_plugin_action_links(array(),  "info-cards.php");
+        $links_array = $settings->fn_init_plugin_action_links(array(),  "wp-info-cards.php");
         $this->assertTrue( 1 == count($links_array));
         $this->assertTrue( utils\is_valid_html($links_array[0]));
    

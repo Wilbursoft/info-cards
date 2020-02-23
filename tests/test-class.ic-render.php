@@ -4,7 +4,6 @@
 */
 require_once dirname( __FILE__ ) . '/../wp-plugin-utils/lib/utils.php'; 
 use wp_info_cards\plugin_utils as utils;
-
 require_once dirname( __FILE__ ) . "/../class.ic-render.php";
 require_once dirname( __FILE__ ) . "/./test-class.ic-custom-post.php";
 
@@ -47,18 +46,11 @@ class IC_RenderTest extends WP_UnitTestCase
         // Do the init
         ob_start();
         $renderer = new IC_Render();
-        $renderer->fn_register_short_codes();
         $output = ob_get_contents();
         $this->assertTrue("" == $output);
         ob_end_clean();
         
-        // Capture state after init
-        global $shortcode_tags;
-        $after = count($shortcode_tags);
-        
-        // Assert
-        $this->assertTrue(isset($shortcode_tags['info-cards']));
-        
+           
         // fn_enqueue_scripts
         $this->assertTrue(false === utils\is_style_enqueued('dynamic_css'));
         $renderer->fn_enqueue_scripts();
@@ -73,14 +65,14 @@ class IC_RenderTest extends WP_UnitTestCase
    	    $custom_post_type=IC_CustomPostTest::hlp_create_info_card_post_types();
          
         // Create empty output
-        $emptyRender =  $renderer->fn_render_shortcode_info_cards();
+        $emptyRender =  $renderer->render_shortcode();
         $this->assertTrue(utils\is_valid_html($emptyRender));
         
         // Create a post
         $test_post_id = $this->create_post_item('test@example.com', 'test_icon_value');
         
         // Should have one item
-        $oneItemRender = $renderer->fn_render_shortcode_info_cards();
+        $oneItemRender = $renderer->render_shortcode();
         $this->assertTrue(utils\is_valid_html($oneItemRender));
         
         // Create 15
@@ -92,7 +84,7 @@ class IC_RenderTest extends WP_UnitTestCase
             $test_post_id = $this->create_post_item($email, $icon);
 
             // Render it all 
-            $manyItems = $renderer->fn_render_shortcode_info_cards();
+            $manyItems = $renderer->render_shortcode();
             
             // Check its good
             $this->assertTrue(utils\is_valid_html($manyItems, true));
@@ -139,14 +131,13 @@ class IC_RenderTest extends WP_UnitTestCase
    	        $options ['ic_card_min_height'] = $x;
 
             // Render it all 
-            $manyItems = $renderer->fn_render_shortcode_info_cards();
+            $manyItems = $renderer->render_shortcode();
             
             // Check its good
             $this->assertTrue(utils\is_valid_html($manyItems, true));
 
         }
    	    
-   	     
         // Clean up
         IC_SettingsTest::hlp_destroy_settings();
    	    IC_CustomPostTest::hlp_destroy_info_card_post_types();

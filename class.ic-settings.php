@@ -20,7 +20,7 @@ utils\dbg_trace("");
 class IC_Settings {
 	
 	// Static constants
-	static public $plugin_file_name = "info-cards.php";
+	static public $plugin_file_name = "wp-info-cards.php";
 	static public $option_group_page = "info_cards_settings";
 	static public $option_name = "info_cards_options";
 	

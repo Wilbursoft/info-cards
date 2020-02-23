@@ -13,18 +13,17 @@ use wp_info_cards\plugin_utils as utils;
 // Our plugins render class 
 class IC_Render extends utils\Render {
 	
-	// Constants
-	public $plugin_file_name = "info-cards.php";
 
 	// Constructor
 	function __construct() {
-		
-		// Register for init call back
-    add_action( 'init', array ($this, 'fn_register_short_codes'));
+	  
+	  // Call parent constructor
+	  parent::__construct(
+	      "info-cards"            // $short_code_tag
+	      );
     
     // Scripts and CSS
 		add_action( 'wp_enqueue_scripts', array($this, 'fn_enqueue_scripts') );
-		
 		
 		// Ajax actions to handle dynamic css
 		add_action('wp_ajax_dynamic_css', array($this,'fn_dynamic_css'));
@@ -32,15 +31,6 @@ class IC_Render extends utils\Render {
 
 	}
 	
-	// Call back to register short codes. 
-	function fn_register_short_codes() {
-	  
-    // Add the short code(s)
-    utils\dbg_trace("registering short codes");
-    add_shortcode('info-cards', array ($this, 'fn_render_shortcode_info_cards'));
-	    
-	}
-
   // Enqueue scripts and styles
   function fn_enqueue_scripts()
   {
@@ -105,8 +95,6 @@ class IC_Render extends utils\Render {
   // Render a single card
   function render_card($post){
     
-    utils\is_script_enqueued('handlers.min.js');
-    
     // Open Card
     $output ="<div class='ic_info_card_block'>";
     
@@ -121,7 +109,6 @@ class IC_Render extends utils\Render {
       $output .="<i class='fas " . $icon . "'></i>";
       $output .="</div>";   
       
-    
       // Excerpt
       $output .="<div class='ic_info_card_excerpt'>";
       $output .=  $post->post_excerpt;
@@ -136,15 +123,14 @@ class IC_Render extends utils\Render {
     
     // Close card
     $output .="</div>";
-  
     
     // done
     return $output;
   
   }
 
-  // short codes
-  function fn_render_shortcode_info_cards(){
+  // Render the short code 
+  function render_shortcode(){
     
     $output = "";
     
