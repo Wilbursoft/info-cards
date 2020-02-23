@@ -46,7 +46,7 @@ class ic_info_cards_app {
 	
 
 	// Constructor
-	function ic_info_cards_app() {
+	function __construct() {
 		
 	
     	// Scripts and CSS

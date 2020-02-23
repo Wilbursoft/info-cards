@@ -9,14 +9,14 @@ require_once dirname( __FILE__ ) .'/wp-plugin-utils/lib/utils.php';
 use wp_info_cards\plugin_utils as utils;
 
  
-// Class to handle the settings
+// Our plugins render class 
 class ic_render {
 	
 	// Constants
 	public $plugin_file_name = "info-cards.php";
 
 	// Constructor
-	function ic_render() {
+	function __construct() {
 		
 		// Register for init call back
     add_action( 'init', array ($this, 'fn_register_short_codes'));

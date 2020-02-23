@@ -29,7 +29,7 @@ class ic_settings {
 	public $settings_fields = null;
 	
 	// Constructor
-	function ic_settings() {
+	function __construct() {
 		
 		// Trace
 		utils\dbg_trace();

@@ -10,7 +10,8 @@ class ic_info_card {
 	static public $post_type = 'ic_info_card';
 	static public $meta_box_id = 'ic_meta_box_id';
 
-	function ic_info_card() {
+	// Constructor 
+	function __construct() {
 		
 		// Actions
 		add_action('add_meta_boxes', array ($this,'fn_add_meta_box') );
