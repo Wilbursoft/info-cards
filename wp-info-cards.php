@@ -14,31 +14,32 @@
 
 
 // includes 
-include_once dirname( __FILE__ ) .'/utils.php';
+require_once dirname( __FILE__ ) .'/wp-plugin-utils/lib/utils.php'; 
+use wp_info_cards\plugin_utils as utils;
 include_once dirname( __FILE__ ) .'/render.php';
 include_once dirname( __FILE__ ) .'/settings.php';
 include_once dirname( __FILE__ ) .'/custom-post.php';
 
 
 // actions
-dbg_trace("adding actions");
+utils\dbg_trace("adding actions");
 
 
 
 // hooks
-dbg_trace("registering hooks");
+utils\dbg_trace("registering hooks");
 register_activation_hook(__FILE__, 'info_cards_activate');
 function info_cards_activate(){
-    dbg_trace();
+    utils\dbg_trace();
 }
 
 register_deactivation_hook(__FILE__, 'info_cards_deactivate');
 function info_cards_deactivate(){
-    dbg_trace();
+    utils\dbg_trace();
 }
 
 // 'WilburSoft WordPress Plugins' font awesome kit
-fa_custom_setup_kit('https://kit.fontawesome.com/79e09bb404.js');
+utils\fa_custom_setup_kit('https://kit.fontawesome.com/79e09bb404.js');
 
 // The app class
 class ic_info_cards_app {
@@ -71,16 +72,16 @@ class ic_info_cards_app {
 }
 
 
-dbg_trace("creating ic_info_cards_app object");
+utils\dbg_trace("creating ic_info_cards_app object");
 new ic_info_cards_app();
 
-dbg_trace("creating ic_info_cards object");
+utils\dbg_trace("creating ic_info_cards object");
 new ic_info_card();
 
-dbg_trace("creating ic_settings object");
+utils\dbg_trace("creating ic_settings object");
 new ic_settings();
 
-dbg_trace("creating ic_render object");
+utils\dbg_trace("creating ic_render object");
 new ic_render();
 
 

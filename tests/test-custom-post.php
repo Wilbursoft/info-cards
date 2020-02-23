@@ -4,7 +4,11 @@
 * Test Utilities
 */
 
-require_once "./utils.php";
+
+require_once dirname( __FILE__ ) .'/../wp-plugin-utils/lib/utils.php'; 
+use wp_info_cards\plugin_utils as utils;
+
+
 require_once "./custom-post.php";
 
 
@@ -71,7 +75,7 @@ class IC_CustomPostTest extends WP_UnitTestCase
      
     public function test_methods(){
    		
-        dbg_trace("checking custom post types");
+        utils\dbg_trace("checking custom post types");
         
         /*
    	    * Custom post type 
@@ -126,15 +130,15 @@ class IC_CustomPostTest extends WP_UnitTestCase
    	  
    	    $email_input = helper_fn_quick_edit_custom_box($custom_post_type, "ic_contact_email","ic_info_card");
    	    $this->assertTrue(!empty($email_input));
-   	    $this->assertTrue(!is_valid_html($email_input));
+   	    $this->assertTrue(!utils\is_valid_html($email_input));
    	    
    	    $icon_input = helper_fn_quick_edit_custom_box($custom_post_type, "ic_icon","ic_info_card");
    	    $this->assertTrue(!empty($icon_input));
-   	    $this->assertTrue(!is_valid_html($icon_input));
+   	    $this->assertTrue(!utils\is_valid_html($icon_input));
    	    
    	    // Valid when put together the right way
    	    $combined = $icon_input . $email_input;
-   	    $this->assertTrue(is_valid_html($combined ));
+   	    $this->assertTrue(utils\is_valid_html($combined ));
 
         /*
    	    * Test 'fn_post_edit_save( $post_id )
@@ -249,14 +253,14 @@ class IC_CustomPostTest extends WP_UnitTestCase
         $output = ob_get_contents();
         ob_end_clean();
     	$this->assertContains('test_icon_value', $output);
-   	    $this->assertTrue(is_valid_html($output));  
+   	    $this->assertTrue(utils\is_valid_html($output));  
    	    
    	    ob_start();
    	    $custom_post_type->hlp_render_icon_input_field("test_icon_value", true);
         $output = ob_get_contents();
         ob_end_clean();
     	$this->assertContains('test_icon_value', $output);
-   	    $this->assertTrue(is_valid_html($output));  
+   	    $this->assertTrue(utils\is_valid_html($output));  
    	    
    	    /*
    	    * Test hlp_render_email_input_field()
@@ -267,14 +271,14 @@ class IC_CustomPostTest extends WP_UnitTestCase
         $output = ob_get_contents();
         ob_end_clean();
     	$this->assertContains('test_email_value', $output);
-   	    $this->assertTrue(is_valid_html($output));  
+   	    $this->assertTrue(utils\is_valid_html($output));  
    	   
    	    ob_start();
    	    $custom_post_type->hlp_render_email_input_field("test_email_value", true);
         $output = ob_get_contents();
         ob_end_clean();
     	$this->assertContains('test_email_value', $output);
-   	    $this->assertTrue(is_valid_html($output));   
+   	    $this->assertTrue(utils\is_valid_html($output));   
    	    
    	    /*
    	    * Test fn_render_meta_box()
@@ -289,7 +293,7 @@ class IC_CustomPostTest extends WP_UnitTestCase
         $output = ob_get_contents();
         ob_end_clean();
    	    $this->assertTrue(!empty($output));
-       	$this->assertTrue(is_valid_html($output));
+       	$this->assertTrue(utils\is_valid_html($output));
    	    
    	    // Clean up
    	    IC_CustomPostTest::hlp_destroy_info_card_post_types();

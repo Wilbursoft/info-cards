@@ -1,5 +1,8 @@
 <?php
 
+// includes 
+require_once dirname( __FILE__ ) .'/wp-plugin-utils/lib/utils.php'; 
+use wp_info_cards\plugin_utils as utils;
 
 // class for info card custom post type
 class ic_info_card {
@@ -76,7 +79,7 @@ class ic_info_card {
 		
 		
 		// trace
-		dbg_trace();
+		utils\dbg_trace();
 		
 		add_meta_box( 
 	        self::$meta_box_id,  					// string $id
@@ -93,7 +96,7 @@ class ic_info_card {
 	function fn_render_meta_box($post){
 		
 		// trace
-		dbg_trace();
+		utils\dbg_trace();
 		
 		// Get the id 
 		$post_id = $post->ID;
@@ -137,7 +140,7 @@ class ic_info_card {
 			
 			
 		// Get the list of font awesoem icons and build select input
-		$icon_list = get_font_awesome_icon_list();
+		$icon_list = utils\get_font_awesome_icon_list();
 		foreach ($icon_list as $icon) {
 			
 			if( $icon === $value ) {

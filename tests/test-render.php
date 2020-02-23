@@ -1,8 +1,9 @@
 <?php
 
 /**
-* Test Utilities
 */
+require_once dirname( __FILE__ ) .'/../wp-plugin-utils/lib/utils.php'; 
+use wp_info_cards\plugin_utils as utils;
 
 require_once "./render.php";
 require_once "./tests/test-custom-post.php";
@@ -60,9 +61,9 @@ class IC_RenderTest extends WP_UnitTestCase
         $this->assertTrue(isset($shortcode_tags['info-cards']));
         
         // fn_enqueue_scripts
-        $this->assertTrue(false === is_style_enqueued('dynamic_css'));
+        $this->assertTrue(false === utils\is_style_enqueued('dynamic_css'));
         $renderer->fn_enqueue_scripts();
-        $this->assertTrue(false !== is_style_enqueued('dynamic_css'));
+        $this->assertTrue(false !== utils\is_style_enqueued('dynamic_css'));
 
 
         /**
@@ -74,14 +75,14 @@ class IC_RenderTest extends WP_UnitTestCase
          
         // Create empty output
         $emptyRender =  $renderer->fn_render_shortcode_info_cards();
-        $this->assertTrue(is_valid_html($emptyRender));
+        $this->assertTrue(utils\is_valid_html($emptyRender));
         
         // Create a post
         $test_post_id = $this->create_post_item('test@example.com', 'test_icon_value');
         
         // Should have one item
         $oneItemRender = $renderer->fn_render_shortcode_info_cards();
-        $this->assertTrue(is_valid_html($oneItemRender));
+        $this->assertTrue(utils\is_valid_html($oneItemRender));
         
         // Create 15
         for ($x = 0; $x <= 15; $x++) {
@@ -95,7 +96,7 @@ class IC_RenderTest extends WP_UnitTestCase
             $manyItems = $renderer->fn_render_shortcode_info_cards();
             
             // Check its good
-            $this->assertTrue(is_valid_html($manyItems, true));
+            $this->assertTrue(utils\is_valid_html($manyItems, true));
             $this->assertTrue(false !== strpos($manyItems, $email));
             $this->assertTrue(false !== strpos($manyItems, $icon));
         }
@@ -142,7 +143,7 @@ class IC_RenderTest extends WP_UnitTestCase
             $manyItems = $renderer->fn_render_shortcode_info_cards();
             
             // Check its good
-            $this->assertTrue(is_valid_html($manyItems, true));
+            $this->assertTrue(utils\is_valid_html($manyItems, true));
 
         }
    	    

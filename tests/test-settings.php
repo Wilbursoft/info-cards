@@ -3,6 +3,8 @@
 /**
 * Test Utilities
 */
+require_once dirname( __FILE__ ) .'/../wp-plugin-utils/lib/utils.php'; 
+use wp_info_cards\plugin_utils as utils;
 
 require_once "./settings.php";
 
@@ -16,7 +18,7 @@ class IC_SettingsTest extends WP_UnitTestCase
         
         // See if we can get a settings 
         $invalid = 'invalid';
-        $value = get_option_array_value(ic_settings::$option_name, 'ic_card_min_height', $invalid);
+        $value = utils\get_option_array_value(ic_settings::$option_name, 'ic_card_min_height', $invalid);
         return ($invalid != $value);
     }
     
@@ -70,9 +72,9 @@ class IC_SettingsTest extends WP_UnitTestCase
         
         // Test - fn_enqueue_scripts
         $settings->fn_enqueue_scripts("wronghook");
-        $this->assertTrue(false === is_script_enqueued('custom-script.js'));
+        $this->assertTrue(false === utils\is_script_enqueued('custom-script.js'));
         $settings->fn_enqueue_scripts("settings_page_info_cards_settings");
-        $this->assertTrue(true === is_script_enqueued('custom-script.js'));
+        $this->assertTrue(true === utils\is_script_enqueued('custom-script.js'));
 
         
         /**
@@ -93,7 +95,7 @@ class IC_SettingsTest extends WP_UnitTestCase
         // Check link inserted 
         $links_array = $settings->fn_init_plugin_action_links(array(),  "info-cards.php");
         $this->assertTrue( 1 == count($links_array));
-        $this->assertTrue( is_valid_html($links_array[0]));
+        $this->assertTrue( utils\is_valid_html($links_array[0]));
    
         /**
         * Test fn_section_desc_render
@@ -102,7 +104,7 @@ class IC_SettingsTest extends WP_UnitTestCase
         $settings->fn_section_desc_render(array());
        // $settings->fn_section_desc_render(array('id' => 'bad_id'));
         $output = ob_get_contents();
-        $this->assertTrue( is_valid_html($output));
+        $this->assertTrue( utils\is_valid_html($output));
         ob_end_clean();
          
         /**
@@ -111,7 +113,7 @@ class IC_SettingsTest extends WP_UnitTestCase
         ob_start();
         $settings->fn_field_render(array());
         $output = ob_get_contents();
-        $this->assertTrue( is_valid_html($output));
+        $this->assertTrue( utils\is_valid_html($output));
         ob_end_clean();    
         
          /**
@@ -126,7 +128,7 @@ class IC_SettingsTest extends WP_UnitTestCase
         ob_start();
         $settings->fn_render_options_page();
         $output = ob_get_contents();
-        $this->assertTrue( is_valid_html($output));
+        $this->assertTrue( utils\is_valid_html($output));
         $this->assertTrue( false === strpos($output, 'form'));
         ob_end_clean();
         
@@ -138,7 +140,7 @@ class IC_SettingsTest extends WP_UnitTestCase
         ob_start();
         $settings->fn_render_options_page();
         $output = ob_get_contents();
-        $this->assertTrue( is_valid_html($output));
+        $this->assertTrue( utils\is_valid_html($output));
         $this->assertTrue( false !== strpos($output, 'form'));
         ob_end_clean();    
         

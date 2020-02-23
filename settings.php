@@ -7,10 +7,11 @@
 
 
 // includes 
-include_once dirname( __FILE__ ) .'/utils.php';
+require_once dirname( __FILE__ ) .'/wp-plugin-utils/lib/utils.php'; 
+use wp_info_cards\plugin_utils as utils;
 
 // Trace
-dbg_trace("");
+utils\dbg_trace("");
 
 
 
@@ -31,7 +32,7 @@ class ic_settings {
 	function ic_settings() {
 		
 		// Trace
-		dbg_trace();
+		utils\dbg_trace();
 		
 		// Our settings sections 
 		$this->settings_sections = array (
@@ -125,7 +126,7 @@ class ic_settings {
 	function fn_register_settings() {
 		
 		// Trace
-		dbg_trace();
+		utils\dbg_trace();
 
 		// register a new setting
 		register_setting( 
@@ -168,7 +169,7 @@ class ic_settings {
 			);
 			
 			// Look for any missing values that need defaults
-			$defaults[$field_id] = get_option_array_value(self::$option_name, $field_id, $field_details['default']);
+			$defaults[$field_id] = utils\get_option_array_value(self::$option_name, $field_id, $field_details['default']);
 
 		}
 		
@@ -181,7 +182,7 @@ class ic_settings {
 	static function unregister_settings() {
 		
 		// Trace
-		dbg_trace();
+		utils\dbg_trace();
 		
 		// Delete options 
 		delete_option( self::$option_name );
@@ -196,7 +197,7 @@ class ic_settings {
 	function fn_init_settings_submenu() {
 	
 		// Trace
-		dbg_trace();
+		utils\dbg_trace();
 		
 		// Add the menu item
 		add_options_page(
@@ -214,7 +215,7 @@ class ic_settings {
 	function fn_init_plugin_action_links($links_array, $plugin_file_name ){
 	
 		// Trace
-		dbg_trace();
+		utils\dbg_trace();
 		
 		// check its this plugin
 		if( false !== strpos( $plugin_file_name, self::$plugin_file_name ) ) {
@@ -231,11 +232,11 @@ class ic_settings {
 	function fn_section_desc_render( $args ){
 		
 		// Trace
-		dbg_trace();
+		utils\dbg_trace();
 		
 		// Check key
 		if(!isset($args['id']) or !isset($this->settings_sections[$args['id']])){
-			dbg_trace("id not set or setting not found.");
+			utils\dbg_trace("id not set or setting not found.");
 			return;
 		}
 		
@@ -251,12 +252,12 @@ class ic_settings {
 	function fn_field_render( $args ){
 	
 		// Trace
-		dbg_trace();
+		utils\dbg_trace();
 		
 		// Check field 
 	    if( !isset($args['id']) or !isset( $this->settings_fields[$args['id']] ) ) {
 	    	$msg = "field is unknown";
-	        dbg_trace($msg);
+	        utils\dbg_trace($msg);
 	        echo("<p>" . $msg . "</p>");
 	        return;
 	    }
@@ -266,8 +267,8 @@ class ic_settings {
 		$field_details = $this->settings_fields[$id];
 	        
 		// Get the current value
-		$value = sanitize_text_field(get_option_array_value(self::$option_name, $id, $field_details['default'] ));
-		$units = get_value($field_details, 'units', ' ');
+		$value = sanitize_text_field(utils\get_option_array_value(self::$option_name, $id, $field_details['default'] ));
+		$units = utils\get_value($field_details, 'units', ' ');
 		
 		// Format the field html
 		$field = "";
@@ -307,7 +308,7 @@ class ic_settings {
 	        if( ! isset( $this->settings_fields[$id] ) ) {
 	        	
 	        	// No field 
-	        	dbg_trace("field is unknown.");
+	        	utils\dbg_trace("field is unknown.");
 	        	
 	        	// Format error 
 				add_settings_error( 
@@ -325,7 +326,7 @@ class ic_settings {
 	        $field_details = $this->settings_fields[$id];
 	        
 	        // Get current value or default
-	        $current_value = get_option_array_value (self::$option_name, $id, $field_details['default']);
+	        $current_value = utils\get_option_array_value (self::$option_name, $id, $field_details['default']);
 
 	       
 	        // switch on type
@@ -334,11 +335,11 @@ class ic_settings {
 	        	case 'integer':
 	        		
 	        		// Get min and max
-	        		$min = get_value($field_details,'min', - PHP_INT_MAX );
-	        		$max = get_value($field_details,'max', PHP_INT_MAX );
+	        		$min = utils\get_value($field_details,'min', - PHP_INT_MAX );
+	        		$max = utils\get_value($field_details,'max', PHP_INT_MAX );
 	        		
 	        		// Check valid
-	    			if( !is_valid_integer_in_range($value, 1, 1000) ){
+	    			if( !utils\is_valid_integer_in_range($value, 1, 1000) ){
 	     			
 		     			// Format error 
 		     			add_settings_error( 
@@ -358,7 +359,7 @@ class ic_settings {
 	        	case 'colour':
 	        		
 	        		// check valid
-	    			if( !is_valid_colour($value) ){
+	    			if( !utils\is_valid_colour($value) ){
 	     			
 		     			// Format error 
 		     			add_settings_error( 
@@ -388,7 +389,7 @@ class ic_settings {
 						'error' );
 						
 					// Trace unexpected type
-	            	dbg_trace("unexpected field type.");
+	            	utils\dbg_trace("unexpected field type.");
 	       
 	        }
 	        

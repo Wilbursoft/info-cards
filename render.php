@@ -4,7 +4,9 @@
  * Render.php
  * Public (non admin) rendering 
  */
- 
+
+require_once dirname( __FILE__ ) .'/wp-plugin-utils/lib/utils.php'; 
+use wp_info_cards\plugin_utils as utils;
 
  
 // Class to handle the settings
@@ -33,7 +35,7 @@ class ic_render {
 	function fn_register_short_codes() {
 	  
     // Add the short code(s)
-    dbg_trace("registering short codes");
+    utils\dbg_trace("registering short codes");
     add_shortcode('info-cards', array ($this, 'fn_render_shortcode_info_cards'));
 	    
 	}
@@ -42,7 +44,7 @@ class ic_render {
   function fn_enqueue_scripts()
   {
     // Trace
-    dbg_trace();
+    utils\dbg_trace();
 
   	// Style sheets
     wp_enqueue_style(
@@ -73,8 +75,8 @@ class ic_render {
 
   
     // Get the option values
-    $card_border_colour = get_option_array_value ('info_cards_options', 'ic_card_border_colour', '#000000');
-    $card_min_height = get_option_array_value ('info_cards_options', 'ic_card_min_height', '0');
+    $card_border_colour = utils\get_option_array_value ('info_cards_options', 'ic_card_border_colour', '#000000');
+    $card_min_height = utils\get_option_array_value ('info_cards_options', 'ic_card_min_height', '0');
 
   
     // Set the css properties
@@ -101,7 +103,7 @@ class ic_render {
   // Render a single card
   function render_card($post){
     
-    is_script_enqueued('handlers.min.js');
+    utils\is_script_enqueued('handlers.min.js');
     
     // Open Card
     $output ="<div class='ic_info_card_block'>";
@@ -145,10 +147,10 @@ class ic_render {
     $output = "";
     
     // Trace
-    dbg_trace();
+    utils\dbg_trace();
     
     // Cols per row
-    $max_cols = get_option_array_value('info_cards_options','ic_max_columns',3);
+    $max_cols = utils\get_option_array_value('info_cards_options','ic_max_columns',3);
     
     // Build the post query
     $args = array(
