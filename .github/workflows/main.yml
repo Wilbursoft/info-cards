@@ -11,12 +11,25 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: wp-info-cards
+      
+      - name: Checkout wp-plugin-utils
+        uses: actions/checkout@v2
+        with:
+          repository: Wilbursoft/wp-plugin-utils
+          path: wp-plugin-utils
 
       - name: Checkout wp-plugin-test-env
         uses: actions/checkout@v2
         with:
           repository: Wilbursoft/wp-plugin-test-env
           path: wp-plugin-test-env
+      
+      - name: Add ws-plugin-utils lib
+        run: |
+
+          echo create the wp-plugin-util name spaced lib directory and copy it in place
+          php ./wp-plugin-utils/pull-src2lib.php wp_info_cards
+          cp -r -p ./wp-plugin-utils/lib ./wp-info-cards/wp-plugin-utils/
 
       - name: Run tests
         run: |
@@ -44,10 +57,25 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: wp-info-cards
+          
+      - name: Checkout wp-plugin-utils
+        uses: actions/checkout@v2
+        with:
+          repository: Wilbursoft/wp-plugin-utils
+          path: wp-plugin-utils
+        
+      - name: Add ws-plugin-utils lib
+        if: success()
+        run: |
+
+          echo create the wp-plugin-util name spaced lib directory and copy it in place
+          php ./wp-plugin-utils/pull-src2lib.php wp_info_cards
+          cp -r -p ./wp-plugin-utils/lib ./wp_info_cards/wp-plugin-utils/
       
       - name: Zip 
         if: success()
         run: |
+        
           echo packaging 
           mkdir ./pkg
           cp ./wp-info-cards/*.php        ./pkg/
@@ -55,6 +83,8 @@ jobs:
           cp ./wp-info-cards/LICENSE      ./pkg/
           cp ./wp-info-cards/readme.txt   ./pkg/
           cp -r ./wp-info-cards/includes/ ./pkg/
+          mkdir ./pkg/wp-plugin-utils
+          cp -r ./wp_info_cards/wp-plugin-utils/lib ./pkg/wp-plugin-utils/
           cd ./pkg
           zip -r ../wp_info-cards.zip .
           cd ..
