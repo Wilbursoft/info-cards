@@ -28,7 +28,7 @@ jobs:
         run: |
 
           echo create the wp-plugin-util name spaced lib directory and copy it in place
-          php ./wp-plugin-utils/pull-src2lib.php wp_info_cards
+          php ./wp-plugin-utils/pull-src2lib.php wp-info-cards
           cp -r -p ./wp-plugin-utils/lib ./wp-info-cards/wp-plugin-utils/
 
       - name: Run tests
@@ -69,8 +69,8 @@ jobs:
         run: |
 
           echo create the wp-plugin-util name spaced lib directory and copy it in place
-          php ./wp-plugin-utils/pull-src2lib.php wp_info_cards
-          cp -r -p ./wp-plugin-utils/lib ./wp_info_cards/wp-plugin-utils/
+          php ./wp-plugin-utils/pull-src2lib.php wp-info-cards
+          cp -r -p ./wp-plugin-utils/lib ./wp-info-cards/wp-plugin-utils/
       
       - name: Zip 
         if: success()
@@ -84,7 +84,7 @@ jobs:
           cp ./wp-info-cards/readme.txt   ./pkg/
           cp -r ./wp-info-cards/includes/ ./pkg/
           mkdir ./pkg/wp-plugin-utils
-          cp -r ./wp_info_cards/wp-plugin-utils/lib ./pkg/wp-plugin-utils/
+          cp -r ./wp-info-cards/wp-plugin-utils/lib ./pkg/wp-plugin-utils/
           cd ./pkg
           zip -r ../wp_info-cards.zip .
           cd ..
