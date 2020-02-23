@@ -31,7 +31,7 @@ class IC_CustomPostTest extends WP_UnitTestCase
         
          
         // Create the ic_info custom post type
-        $custom_post_type = new ic_info_card();
+        $custom_post_type = new IC_Info_Card();
         $custom_post_type->fn_create_post_type();
         
         // Should be one now..
@@ -57,7 +57,7 @@ class IC_CustomPostTest extends WP_UnitTestCase
         WP_UnitTestCase::assertTrue(1 == count($types));
         
         // Un register it
-        ic_info_card::destroy_post_type();
+        IC_Info_Card::destroy_post_type();
 
         
         // Check that is has gone now

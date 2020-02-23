@@ -11,7 +11,7 @@ use wp_info_cards\plugin_utils as utils;
 
  
 // Our plugins render class 
-class ic_render {
+class IC_Render extends utils\Render {
 	
 	// Constants
 	public $plugin_file_name = "info-cards.php";

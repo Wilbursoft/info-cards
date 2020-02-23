@@ -46,7 +46,7 @@ class IC_RenderTest extends WP_UnitTestCase
     
         // Do the init
         ob_start();
-        $renderer = new ic_render();
+        $renderer = new IC_Render();
         $renderer->fn_register_short_codes();
         $output = ob_get_contents();
         $this->assertTrue("" == $output);

@@ -42,7 +42,7 @@ function info_cards_deactivate(){
 utils\fa_custom_setup_kit('https://kit.fontawesome.com/79e09bb404.js');
 
 // The app class
-class ic_info_cards_app {
+class IC_Info_Cards_App {
 	
 
 	// Constructor
@@ -72,17 +72,17 @@ class ic_info_cards_app {
 }
 
 
-utils\dbg_trace("creating ic_info_cards_app object");
-new ic_info_cards_app();
+utils\dbg_trace("creating IC_Info_Cards_App object");
+new IC_Info_Cards_App();
 
-utils\dbg_trace("creating ic_info_cards object");
-new ic_info_card();
+utils\dbg_trace("creating IC_Info_Card object");
+new IC_Info_Card();
 
-utils\dbg_trace("creating ic_settings object");
-new ic_settings();
+utils\dbg_trace("creating IC_Settings object");
+new IC_Settings();
 
-utils\dbg_trace("creating ic_render object");
-new ic_render();
+utils\dbg_trace("creating IC_Render object");
+new IC_Render();
 
 
 

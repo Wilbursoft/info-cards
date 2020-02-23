@@ -17,7 +17,7 @@ utils\dbg_trace("");
 
 
 // Class to handle the settings
-class ic_settings {
+class IC_Settings {
 	
 	// Static constants
 	static public $plugin_file_name = "info-cards.php";

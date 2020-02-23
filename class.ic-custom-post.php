@@ -5,7 +5,7 @@ require_once dirname( __FILE__ ) .'/wp-plugin-utils/lib/utils.php';
 use wp_info_cards\plugin_utils as utils;
 
 // class for info card custom post type
-class ic_info_card {
+class IC_Info_Card {
 	
 	static public $post_type = 'ic_info_card';
 	static public $meta_box_id = 'ic_meta_box_id';

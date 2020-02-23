@@ -18,7 +18,7 @@ class IC_SettingsTest extends WP_UnitTestCase
         
         // See if we can get a settings 
         $invalid = 'invalid';
-        $value = utils\get_option_array_value(ic_settings::$option_name, 'ic_card_min_height', $invalid);
+        $value = utils\get_option_array_value(IC_Settings::$option_name, 'ic_card_min_height', $invalid);
         return ($invalid != $value);
     }
     
@@ -29,7 +29,7 @@ class IC_SettingsTest extends WP_UnitTestCase
         WP_UnitTestCase::assertTrue(! IC_SettingsTest::settings_exist());
         
         // Create the is_settings 
-        $ic_settings = new ic_settings();
+        $ic_settings = new IC_Settings();
         $ic_settings->fn_register_settings();
         
         // Our settings should be present
@@ -46,7 +46,7 @@ class IC_SettingsTest extends WP_UnitTestCase
         WP_UnitTestCase::assertTrue(IC_SettingsTest::settings_exist());
         
         // Unregister them
-        ic_settings::unregister_settings();
+        IC_Settings::unregister_settings();
         
         // Our settings shoud NOT be present
         WP_UnitTestCase::assertTrue(! IC_SettingsTest::settings_exist());
@@ -151,7 +151,7 @@ class IC_SettingsTest extends WP_UnitTestCase
         
         // No errors yet
         $error_count = 0;
-        $this->assertTrue($error_count === count(get_settings_errors(ic_settings::$option_name)));
+        $this->assertTrue($error_count === count(get_settings_errors(IC_Settings::$option_name)));
         
         // Not a number 
         $input = array(
@@ -159,7 +159,7 @@ class IC_SettingsTest extends WP_UnitTestCase
         );    
         $error_count++;
         $settings->fn_validate_input($input);
-        $this->assertTrue($error_count === count(get_settings_errors(ic_settings::$option_name)));
+        $this->assertTrue($error_count === count(get_settings_errors(IC_Settings::$option_name)));
 
         // Out of range
         $input = array(
@@ -167,7 +167,7 @@ class IC_SettingsTest extends WP_UnitTestCase
         );
         $error_count++;
         $settings->fn_validate_input($input);
-        $this->assertTrue($error_count === count(get_settings_errors(ic_settings::$option_name)));
+        $this->assertTrue($error_count === count(get_settings_errors(IC_Settings::$option_name)));
         
         // unknown field
         $input = array(
@@ -175,7 +175,7 @@ class IC_SettingsTest extends WP_UnitTestCase
         );
         $error_count++;
         $settings->fn_validate_input($input);
-        $this->assertTrue($error_count === count(get_settings_errors(ic_settings::$option_name)));
+        $this->assertTrue($error_count === count(get_settings_errors(IC_Settings::$option_name)));
         
         // Bad colour
         $input = array(
@@ -183,14 +183,14 @@ class IC_SettingsTest extends WP_UnitTestCase
         );
         $error_count++;
         $settings->fn_validate_input($input);
-        $this->assertTrue($error_count === count(get_settings_errors(ic_settings::$option_name)));
+        $this->assertTrue($error_count === count(get_settings_errors(IC_Settings::$option_name)));
      
         // Good colour
         $input = array(
             'ic_card_border_colour' => '#8994e3'
         );
         $settings->fn_validate_input($input);
-        $this->assertTrue($error_count === count(get_settings_errors(ic_settings::$option_name)));
+        $this->assertTrue($error_count === count(get_settings_errors(IC_Settings::$option_name)));
      
         // Bad type
         $settings->settings_fields['ic_bad_field'] = array (
@@ -208,7 +208,7 @@ class IC_SettingsTest extends WP_UnitTestCase
         );
         $error_count++;
         $settings->fn_validate_input($input);
-        $this->assertTrue($error_count === count(get_settings_errors(ic_settings::$option_name)));
+        $this->assertTrue($error_count === count(get_settings_errors(IC_Settings::$option_name)));
 			
 		unset($settings->settings_fields['ic_bad_field']);
       
