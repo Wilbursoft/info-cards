@@ -22,45 +22,8 @@ class IC_Render extends utils\Render {
 	      "info-cards"            // $short_code_tag
 	      );
     
-    // Scripts and CSS
-		add_action( 'wp_enqueue_scripts', array($this, 'fn_enqueue_scripts') );
-		
-		// Ajax actions to handle dynamic css
-		add_action('wp_ajax_dynamic_css', array($this,'fn_dynamic_css'));
-    add_action('wp_ajax_nopriv_dynamic_css', array($this,'fn_dynamic_css'));
-
-	}
-	
-  // Enqueue scripts and styles
-  function fn_enqueue_scripts()
-  {
-    // Trace
-    utils\dbg_trace();
-
-  	// Style sheets
-    wp_enqueue_style(
-                'info-cards-dynamic',
-                admin_url('admin-ajax.php').'?action=dynamic_css',
-                array(),
-                time(),
-                'all'
-            	);
-
-  }
+  	}
   
-   // Call back to generate dynamic css
-  function fn_dynamic_css(){
-
-    // Do content type header here, outside of unit test coverage
-    // @codeCoverageIgnoreStart
-    header("Content-type: text/css; charset: UTF-8");
-    
-    // Create the actual CSS body
-    $this->render_dynamic_css();
-    // @codeCoverageIgnoreEnd
-
-
-  }
   
   // Generate the CSS 
   function render_dynamic_css(){

@@ -52,9 +52,9 @@ class IC_RenderTest extends WP_UnitTestCase
         
            
         // fn_enqueue_scripts
-        $this->assertTrue(false === utils\is_style_enqueued('dynamic_css'));
+        $this->assertTrue(false === utils\is_style_enqueued( $renderer->get_dynamic_css_action_name()));
         $renderer->fn_enqueue_scripts();
-        $this->assertTrue(false !== utils\is_style_enqueued('dynamic_css'));
+        $this->assertTrue(false !== utils\is_style_enqueued( $renderer->get_dynamic_css_action_name()));
 
 
         /**
