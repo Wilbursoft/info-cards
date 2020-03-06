@@ -37,6 +37,9 @@ class IC_InfoCardsTest extends WP_UnitTestCase
         ob_end_clean();
         
    
+        $app = new IC_Info_Cards_App();
+        
+        $app->fn_enqueue_scripts();
     }
 
 }
